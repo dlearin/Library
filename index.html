@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Library</h1>
+    </div>
+    <div class="main">
+        <button class="mostrarFormulario">New Book</button>
+        <div id="modal" style="display:none;">
+            <div id="formulario" >
+                <h2>Formulario para incorporar un libro</h2>
+                <form action="" method="post">
+                    <label for="nombre">Nombre de libro: </label>       
+                    <input class="nombre" type="text" id="nombre" name="nombre">
+                    
+                    <label for="año">Año de publicación: </label>
+                    <input class="año" type="text" id="año" name="año">
+                    
+                    <label for="autor">Autor del libro: </label>
+                    <input class="autor" type="text" name="autor" id="autor">
+
+                    <button class="enviar" type="submit" class="submit">Enviar</button>   
+                </form>
+            </div>
+        </div>
+    </div>
+    
+</body>
+<script src="./js.js"></script>
+
+</html>
