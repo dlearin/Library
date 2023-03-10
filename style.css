@@ -7,6 +7,12 @@ h1{
   font-family: 'Poppins', sans-serif;
 }
 
+.bookSection{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 15px;
+}
+
 #modal {
     position: fixed;
     z-index: 1;
