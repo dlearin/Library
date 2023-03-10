@@ -71,37 +71,45 @@ function addBookToLibrary(inputNombre, inputAuthor,inputPages){
  };
 
 //function to display books
+function removeBook(index) {
+  myLibrary.splice(index, 1);
+}
 
-function displayBooks(){
- 
-  //obtener el libro mas reciente
-  const latestBook = myLibrary[myLibrary.length - 1];
+function displayBooks() {
+  // Limpiar el contenedor de libros antes de agregar los nuevos
+  presentBook.innerHTML = "";
 
-  //crear un nuevo elemento div para la representación del último libro
-  const bookCell = document.createElement("div");
-  bookCell.classList.add("bookCell");
+  // Iterar sobre el array de libros
+  for (let i = 0; i < myLibrary.length; i++) {
+    const book = myLibrary[i];
 
-  //agregar el contenido del libro al elemento div
+    // Crear un nuevo elemento div para el libro y asignarle una clase
+    const bookCell = document.createElement("div");
+    bookCell.classList.add("bookCell");
 
-  bookCell.innerHTML = 
-  `
-  <h2>${latestBook.name}</h2>
-  <p>Author: ${latestBook.author}</p>
-  <p>Pages: ${latestBook.pages}</p>
-  
-  `;
+    // Agregar el contenido del libro al elemento div
+    bookCell.innerHTML = `
+      <h2>${book.name}</h2>
+      <p>Author: ${book.author}</p>
+      <p>Pages: ${book.pages}</p>
+      <button class="borrarLibro" data-index="${i}">Delete</button>
+    `;
 
-  
+    // Obtener el botón de "Delete" y agregarle un evento de click para borrar el libro correspondiente
+    const buttonBorrarLibro = bookCell.querySelector(".borrarLibro");
+    buttonBorrarLibro.addEventListener("click", function () {
+      const index = buttonBorrarLibro.dataset.index;
+      removeBook(index);
+      displayBooks();
+    });
 
-  // Agregar el elemento div al grid
-
-  presentBook.appendChild(bookCell);
+    // Agregar el elemento div al contenedor de libros
+    presentBook.appendChild(bookCell);
+  }
 
   // Contar el número total de libros en la biblioteca
-
   const bookCount = myLibrary.length;
-
-};
+}
 
 //estilos para el grid
 
